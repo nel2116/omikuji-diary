@@ -1,133 +1,137 @@
-/* 中央パネル */
 .container {
-    background: rgba(34, 34, 34, 0.95); /* より不透明に、視認性UP */
-    backdrop-filter: none;              /* ぼかし効果もOFFでスッキリ */
-    padding: 2rem;
-    border-radius: 1.5rem;
-    max-width: 700px;
-    margin: 3rem auto;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  /* タイトル */
-  .title {
-    color: #fffdf4;
-    font-size: 2.2rem;
-    text-align: center;
-    margin-bottom: 1.5rem;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
-  }
-  
-  /* フォーム */
-  .form {
-    width: 100%;
-  }
-  
-  /* 入力グループ */
-  .inputGroup {
-    margin-bottom: 1rem;
-    display: flex;
-    flex-direction: column;
-    font-size: 0.95rem;
-    color: #ffe4b5;
-  }
-  
-  .inputGroup label {
-    font-weight: bold;
-    font-size: 1rem;
-    color: #fffdf4;  /* ←より明るい和紙白 */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* 文字の縁取り */
-    margin-bottom: 0.3rem;
-  }
-  
-  .inputGroup input,
-  .inputGroup select,
-  .inputGroup textarea {
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    border: none;
-    font-size: 1rem;
-    background-color: #2c2c2c;
-    color: #ffffff;
-  }
-  
-  .inputGroup input::placeholder,
-  .inputGroup textarea::placeholder {
-    color: #bbbbbb;
-  }
-  
-  /* ボタン */
-  .button {
-    width: 100%;
-    margin-top: 1rem;
-    padding: 0.75rem;
-    border-radius: 8px;
-    background-color: #1a1a1a;
-    color: white;
-    font-weight: bold;
-    font-size: 1rem;
-    border: 1px solid transparent;
-    transition: border-color 0.3s;
-    cursor: pointer;
-  }
-  
-  .button:hover {
-    border-color: #ffb347;
-  }
-  
-  /* おみくじ筒の画像 */
-  .omikujiImage {
-    width: 200px;
-    max-width: 80%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    border-radius: 1rem;
-  }
-  
-  /* フリップカードエリア */
-  .flipCard {
-    perspective: 1000px;
-    width: 100%;
-    max-width: 400px;
-    margin: 2rem auto;         /* ← autoで左右中央揃え */
-    display: flex;
-    justify-content: center;   /* ← 子要素も中央に配置 */
-  }
-  
-  .flipInner {
-    position: relative;
-    width: 100%;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-  }
-  
-  .flipped .flipInner {
-    transform: rotateY(180deg);
-  }
-  
-  .cardFace {
-    position: absolute;
-    width: 100%;
-    padding: 1.5rem;
-    backface-visibility: hidden;
-    border-radius: 1rem;
-    background-color: #292929;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  }
-  
-  .cardBack {
-    transform: rotateY(180deg);
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
 
-  .resultText {
-    color: #ffffff; /* 好きな色に変更 */
-  }
-  
-  .resultTextStrong {
-    color: #ffffff; /* 強調部分の色 */
-    font-weight: bold;
-  }
+.contentWrapper {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 95%;
+  max-width: 1200px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  text-align: left;
+  z-index: 2;
+}
+
+.title {
+  text-align: center;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form label {
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.form input,
+.form select,
+.form textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 0.4rem;
+  border: none;
+  background-color: #1a1a1a;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.form textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.form button {
+  background-color: black;
+  color: white;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background-color: #444;
+}
+
+.resultCard {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-top: 1rem;
+  min-height: 400px;
+}
+
+/* === カードFlip用 === */
+.flipContainer {
+  perspective: 1000px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  height: 100%;
+  min-height: 500px;
+}
+
+.flipper {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.flipContainer.flipped .flipper {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.front {
+  z-index: 2;
+}
+
+.back {
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+/* === おみくじ画像（背景扱い）=== */
+.omikujiBackground {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+  opacity: 0.2;
+  width: 240px;
+  height: auto;
+  pointer-events: none;
+}
