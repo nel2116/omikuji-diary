@@ -140,11 +140,23 @@ const Home = () => {
           <div className={`${styles.cardFace} ${styles.cardBack}`}>
             {result && (
               <>
-                <h2>🔮 診断結果</h2>
-                <p><strong>運勢：</strong>{result.fortune.rank} - {result.fortune.message}</p>
-                <p><strong>ラッキーアイテム：</strong>{result.item}</p>
-                <p><strong>ラッキーアクション：</strong>{result.action}</p>
-                <p><strong>応援メッセージ：</strong>{result.comment}</p>
+                <h2 className={styles.resultText}>🔮 診断結果</h2>
+                <p className={styles.resultText}>
+                  <strong className={styles.resultTextStrong}>運勢：</strong>
+                  {result.fortune.rank} - {result.fortune.message}
+                </p>
+                <p className={styles.resultText}>
+                  <strong className={styles.resultTextStrong}>ラッキーアイテム：</strong>
+                  {result.item}
+                </p>
+                <p className={styles.resultText}>
+                  <strong className={styles.resultTextStrong}>ラッキーアクション：</strong>
+                  {result.action}
+                </p>
+                <p className={styles.resultText}>
+                  <strong className={styles.resultTextStrong}>応援メッセージ：</strong>
+                  {result.comment}
+                </p>
               </>
             )}
           </div>
