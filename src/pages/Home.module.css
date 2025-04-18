@@ -124,10 +124,10 @@
   }
 
   .resultText {
-    color: #2c3e50; /* 好きな色に変更 */
+    color: #ffffff; /* 好きな色に変更 */
   }
   
   .resultTextStrong {
-    color: #e74c3c; /* 強調部分の色 */
+    color: #ffffff; /* 強調部分の色 */
     font-weight: bold;
   }
