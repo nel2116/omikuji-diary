@@ -1,49 +1,58 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* 和柄背景をbodyに適用 */
-body {
+/* ベースの設定 */
+html, body {
   margin: 0;
   padding: 0;
   min-height: 100%;
   height: auto;
+  width: 100%;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
   background-image: url('/asanoha-bg.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll; /* ← fixedではなくscrollに変更 */
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #1e1e1e;
 }
 
-/* ルートに余白 */
+/* Viteアプリのルートコンテナ */
 #root {
-  min-height: 100%;
+  min-height: 100vh;
   width: 100%;
+  display: flex;
+  justify-content: center;
   box-sizing: border-box;
 }
 
+/* タイトル中央寄せ */
 h1 {
-  font-size: 2.2em;
-  line-height: 1.1;
+  font-size: 2rem;
   text-align: center;
+  margin-top: 2rem;
 }
 
-button {
-  font-family: inherit;
+/* 各フォームや要素も余白追加で詰まりを防ぐ */
+input, select, textarea, button {
+  width: 100%;
+  max-width: 600px;
+  margin: 0.5rem auto;
+  padding: 0.8rem;
+  display: block;
+  border-radius: 8px;
+  background-color: #1a1a1a;
+  color: white;
+  border: 1px solid transparent;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
+/* ボタンホバー */
+button:hover {
+  border-color: #646cff;
+}
+
+/* 診断結果カードの余白 */
+.resultCard {
+  margin-top: 2rem;
 }
